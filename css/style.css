@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: #f0f8ff; /* Default background */
+  overflow-y: hidden !important;
+}
+
+/* Centered container */
+.center-container {
+  width: 413px;
+  height: 93vh;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  transition: background-color 0.5s, color 0.5s; /* Smooth transition for theme change */
+}
+
+/* Light theme styles for the container */
+.center-container.light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Night theme styles for the container */
+.center-container.night {
+  background-color: #1a1a2e;
+  color: #eaeaea;
+}
+
+/* Style for the toggle button */
+.toggle-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  border-radius: 30px;
+  padding: 5px;
+  width: 80px;
+  height: 35px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s;
+}
+
+.toggle-indicator {
+  width: 25px;
+  height: 25px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.center-container.light .toggle-indicator {
+  transform: translateX(5px);
+  background-color: #ffd700; /* Sun color */
+}
+
+.center-container.night .toggle-indicator {
+  transform: translateX(45px);
+  background-color: #4caf50; /* Moon color */
+}
+
+.center-container.light .toggle-indicator::before {
+  content: "☀️"; /* Sun icon */
+  color: #ffd700;
+  font-size: 13px;
+}
+
+.center-container.night .toggle-indicator::before {
+  content: "🌙"; /* Moon icon */
+  color: #4caf50;
+  font-size: 13px;
+}
+
+.calculator_body {
+  width: 100%;
+  margin: 30px 0px 20px;
+}
+
+#display {
+  width: 100%;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  outline: none;
+  text-align: right;
+  margin: 22px 0px 32px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.calculator_buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  width: 62px;
+  height: 62px;
+  margin: 7px 5px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #e7e7e8;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.color_btn {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  color: #fff;
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.btn:focus {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  color: #fff;
+  transition: 0.1s !important;
+}
+
+.color_btn:focus {
+  background: #4caf50;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.copyright_box {
+  width: 100%;
+  padding: 20px 0px;
+  background-color: #1a1a2e;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+a {
+  text-decoration: none !important;
+  color: #fff !important;
+}
+
+/* Light theme styles */
+.center-container.light #display {
+  color: #000; /* Text color in light mode */
+}
+
+/* Night theme styles */
+.center-container.night #display {
+  color: #fff; /* Text color in night mode (default or white) */
+}
+
+/* Placeholder colors */
+#display::placeholder {
+  color: #000; /* Placeholder for light mode */
+}
+
+.center-container.night #display::placeholder {
+  color: #fff; /* Placeholder for night mode */
+}

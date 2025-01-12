@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day & Night Toggle</title>
+    <!-------======== Bootstrap 4 Css ======--------->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-----------=========== My Css ===========---------->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-----------============== Font awesome 6 CDn ============---------->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="center-container light" id="center-container">
+      <!-- Container for the toggle button -->
+      <div class="toggle-container" id="theme-toggle">
+        <div class="toggle-indicator"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 calculator_body">
+            <input type="text" id="display" />
+            <div class="calculator_buttons">
+              <button
+                class="btn color_btn"
+                onclick="
+                    display = '';
+                    document.querySelector('#display').value =display;
+                    playAudio('audioPercent');"
+              >
+                C
+              </button>
+
+              <button
+                class="btn color_btn"
+                onclick="
+                    const currentValue = parseFloat(document.querySelector('#display').value);
+                    if (!isNaN(currentValue)) {
+                      const result = Math.sqrt(currentValue);
+                      document.querySelector('#display').value = result;
+                    } else {
+                      document.querySelector('#display').value = 'Invalid input';
+                    } triggerVibration();"
+              >
+                <i class="fa-solid fa-square-root-variable"></i>
+              </button>
+
+              <button
+                class="btn color_btn"
+                onclick="
+                  const currentValue = parseFloat(document.querySelector('#display').value);
+                  if (!isNaN(currentValue)) {
+                    const result = currentValue / 100;
+                    document.querySelector('#display').value = result;
+                  } else {
+                    document.querySelector('#display').value = 'Invalid input';
+                  } triggerVibration();"
+              >
+                <i class="fa-solid fa-percent"></i>
+              </button>
+              <button
+                class="btn color_btn"
+                onclick="
+                    display += '/';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                <i class="fa-solid fa-divide"></i>
+              </button>
+              <button
+                class="btn"
+                onclick="
+                     display += '7';
+                     document.querySelector('#display').value =display ; triggerVibration();
+                    "
+              >
+                7
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '8';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                8
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '9';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                9
+              </button>
+              <button
+                class="btn color_btn"
+                onclick="
+                    display += '*';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '4';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                4
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '5';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                5
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '6';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                6
+              </button>
+              <button
+                class="btn color_btn"
+                onclick="
+                    display += '-';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '1';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                1
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '2';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                2
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '3';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                3
+              </button>
+              <button
+                class="btn color_btn"
+                onclick="
+                    display += '+';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <button
+                class="btn color_btn"
+                onclick="
+                    var display = document.querySelector('#display').value; 
+                    display = display.slice(0, -1); 
+                    document.querySelector('#display').value = display; playAudio('audioSqrt');"
+              >
+                <i class="fa-solid fa-delete-left"></i>
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '0';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                0
+              </button>
+              <button
+                class="btn"
+                onclick="
+                    display += '.';
+                    document.querySelector('#display').value =display; triggerVibration();"
+              >
+                .
+              </button>
+              <button
+                class="btn color_btn"
+                onclick="
+                    display = eval(display);
+                    document.querySelector('#display').value =display; playAudio('buttonAudio');"
+              >
+                <i class="fa-solid fa-equals"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 copyright_box">
+            Design & Developed By -
+            <a href="https://jaymondal45.github.io/My-Portfolio/">Jay Mondal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <audio id="buttonAudio" src="audio/click-sound.mp3" preload="auto"></audio>
+    <audio id="audioSqrt" src="audio/sqrt-sound.mp3" preload="auto"></audio>
+    <audio
+      id="audioPercent"
+      src="audio/percent-sound.mp3"
+      preload="auto"
+    ></audio> -->
+
+    <!----------============== Bootstrap 4 Js ============---------->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!---------============= Day & Night Button Js ============---------->
+    <script src="js/day-night.js"></script>
+
+    <!------============= Calculator js ============-------------->
+    <script>
+      let display = "";
+      document.querySelector("#display").value = display;
+      function triggerVibration() {
+        if (navigator.vibrate) {
+          navigator.vibrate(100); // Vibration duration in milliseconds (100ms)
+        }
+      }
+    </script>
+
+    <script>
+      function playAudio(audioId) {
+        const audio = document.getElementById(audioId);
+        console.log(audio); // Log the audio element to check if it's being selected correctly
+        if (audio) {
+          audio.play(); // Play the selected audio file
+        } else {
+          console.log("Audio element not found:", audioId);
+        }
+      }
+      console.log(document.getElementById("audioSqrt"));
+      console.log(document.getElementById("audioPercent"));
+    </script>
+    <!-- <script src="js/alart.js"></script> -->
+  </body>
+</html>
